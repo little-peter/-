@@ -1,0 +1,53 @@
+<html>
+<head><meta charset="utf-8"><title>我的计算器</title><script src="jquery-1.9.1.min.js"> </script><script>function myck(type) {
+            var num1=jQuery("#num1");
+            var num2=jQuery("#num2");
+            //井号表示要使用id来获取元素了var result=jQuery("#result");
+            if(type==4){
+                //清空操作if(confirm("确认清空")){
+                    num1.val("");
+                    num2.val("");
+                    result.html("");
+                    //.html就可以拿到result的内容了，不能.val，因为没有这样的属性
+                }
+                return  false;
+            }
+            //1.非空校验if(num1.val()=="") {
+                alert("请先输入数字1");
+                num1.focus();
+                //让光标重置到num1;return false;
+            }
+            if(num2.val()==""){
+                alert("请先输入数字2");
+                num2.focus();
+                return false;
+            }
+            //逻辑处理var total=0;
+            if(type==1){
+//相加操作
+                total=parseInt(num1.val())+parseInt(num2.val());
+            }else if(type==2){
+//相减操作
+                total=parseInt(num1.val())-parseInt(num2.val());
+            }else if(type==3){
+//相乘操作
+                total=parseInt(num1.val())*parseInt(num2.val());
+            }
+            result.html("<h1>最终计算结果: "+total+ "</h1>");
+        }
+    </script>
+</head>
+<body>
+<div style="text-align:center;"><h1>计算器</h1>
+   数字1 <input id="num1" name="number1" type="number"><p></p>
+    数字2 <input id="num2" name="number2" type="number"><p></p><input type="button" value="相加"  onclick="myck(1)"><input type="button" value="相减" onclick="myck(2)"><input type="button" value="相乘" onclick="myck(3)"><input type="button" value="清空" onclick="myck(4)"><p></p>
+<div id="result">
+ 
+</div>
+</div>
+ 
+</body>
+</html>
+————————————————
+版权声明：本文为CSDN博主「little-peter」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_49425839/article/details/115252321
