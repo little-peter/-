@@ -1,0 +1,39 @@
+/*
+思路：该题比较简单，请参考代码
+*/
+void Reverse(char* str)
+{
+    char* left = str;
+    char* right = str + strlen(str)-1;
+    while(left < right)
+    {
+        char temp = *left;
+        *left = *right;
+        *right = temp;
+        ++left;
+        --right;
+    }
+}
+ 
+ 
+int main()
+{
+    char str[] = "hello bit";
+    //在这里完成下面函数，参数自己设计，要求：使用指针
+    Reverse(str);
+    return 0;
+}
+ 
+ 
+// 注意：如果是在线OJ时，必须要考虑循环输入，因为每个算法可能有多组测试用例进行验证，参考以下main函数写法，
+int main()
+{
+    char str[101] = {0};
+    while(gets(str))
+    {
+        Reverse(str);
+        printf("%s\n", str);
+        memset(str, 0, sizeof(str)/sizeof(str[0]));
+    }
+    return 0;
+}
