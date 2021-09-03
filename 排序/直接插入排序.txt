@@ -1,0 +1,28 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class TestSort {
+
+    public static void insertSort2(int[] array){
+        for(int i=1;i<array.length;i++){
+            int tmp=array[i];
+            int j=i-1;
+            for(;j>=0;j--){
+               if(array[j]>tmp){
+             array[j+1]=array[j];
+               }else{
+                   break;
+               }
+            }
+            array[j+1]=tmp;//可能因为循环条件不满足退出
+        }
+
+
+    }
+
+    public static void main(String[] args) {
+        int[] array = {10,3,2,7,19,78,65,127};
+        insertSort2(array);
+        System.out.println(Arrays.toString(array)) ;;
+
+    }
+}
